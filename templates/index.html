@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Management</title>
+<style>
+body { font-family: Arial; background:#f4f6f9; text-align:center; }
+h2 { color:#333; }
+form input, button {
+    padding:10px; margin:5px; border-radius:5px; border:1px solid #ccc;
+}
+button { background:#28a745; color:white; cursor:pointer; }
+button:hover { background:#218838; }
+
+table {
+    margin:auto;
+    border-collapse: collapse;
+    width:80%;
+    background:white;
+}
+th { background:#007bff; color:white; }
+th, td { padding:10px; border:1px solid #ddd; }
+
+a { text-decoration:none; padding:5px 10px; border-radius:5px; }
+.delete { background:red; color:white; }
+.edit { background:orange; color:white; }
+
+.search-box { margin:20px; }
+</style>
+</head>
+
+<body>
+
+<h2>🎓 Student Management System</h2>
+
+<form action="/add" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="roll" placeholder="Roll No" required>
+    <input type="number" name="marks" placeholder="Marks" required>
+    <button>Add Student</button>
+</form>
+
+<div class="search-box">
+<form method="GET">
+    <input type="text" name="search" placeholder="Search by Name or Roll">
+    <button>Search</button>
+</form>
+</div>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Roll</th>
+<th>Marks</th>
+<th>%</th>
+<th>Grade</th>
+<th>Action</th>
+</tr>
+
+{% for s in students %}
+<tr>
+<td>{{ s.name }}</td>
+<td>{{ s.roll }}</td>
+<td>{{ s.marks }}</td>
+<td>{{ s.percentage }}</td>
+<td>{{ s.grade }}</td>
+<td>
+    <a href="/edit/{{ s.roll }}" class="edit">Edit</a>
+    <a href="/delete/{{ s.roll }}" class="delete">Delete</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
