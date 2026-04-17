@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Edit Student</title>
-<style>
-body { text-align:center; font-family:Arial; }
-input, button { padding:10px; margin:5px; }
-button { background:blue; color:white; }
-</style>
+<title>Edit</title>
 </head>
 
-<body>
+<body style="text-align:center; font-family:Arial;">
 
 <h2>Edit Student</h2>
 
 <form action="/update/{{ student.roll }}" method="POST">
-    <input type="text" name="name" value="{{ student.name }}" required>
-    <input type="number" name="marks" value="{{ student.marks }}" required>
+    <input type="text" name="name" value="{{ student.name }}" required><br><br>
+    <input type="number" name="marks" value="{{ student.marks }}" required><br><br>
     <button>Update</button>
 </form>
 
 <br>
-<a href="/">⬅ Back</a>
+<a href="/">Back</a>
 
 </body>
 </html>

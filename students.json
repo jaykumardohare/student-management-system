@@ -5,5 +5,19 @@
         "marks": 100,
         "percentage": 100,
         "grade": "A"
+    },
+    {
+        "name": "Luffy",
+        "roll": "10",
+        "marks": 90,
+        "percentage": 90,
+        "grade": "A"
+    },
+    {
+        "name": "Ussop",
+        "roll": "20",
+        "marks": 50,
+        "percentage": 50,
+        "grade": "C"
     }
 ]

@@ -16,7 +16,6 @@ def save_data(data):
     with open(FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-# Grade function
 def get_grade(marks):
     if marks >= 90:
         return "A"
@@ -30,10 +29,14 @@ def get_grade(marks):
 @app.route("/")
 def index():
     students = load_data()
-    search = request.args.get("search")
 
+    # Search
+    search = request.args.get("search")
     if search:
         students = [s for s in students if search.lower() in s["name"].lower() or search in s["roll"]]
+
+    # Sort (Topper first)
+    students = sorted(students, key=lambda x: x["marks"], reverse=True)
 
     return render_template("index.html", students=students)
 
