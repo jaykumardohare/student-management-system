@@ -1,23 +1,16 @@
 [
     {
-        "name": "Jay ",
+        "name": "Jay Kumar Dohare",
         "roll": "69",
-        "marks": 100,
-        "percentage": 100,
+        "enroll": "123123123",
+        "dob": "2002-12-23",
+        "subjects": {
+            "Math": 90,
+            "Science": 90,
+            "English": 95
+        },
+        "total": 275,
+        "percentage": 91.67,
         "grade": "A"
-    },
-    {
-        "name": "Luffy",
-        "roll": "10",
-        "marks": 90,
-        "percentage": 90,
-        "grade": "A"
-    },
-    {
-        "name": "Ussop",
-        "roll": "20",
-        "marks": 50,
-        "percentage": 50,
-        "grade": "C"
     }
 ]

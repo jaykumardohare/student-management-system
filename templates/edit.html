@@ -2,20 +2,28 @@
 <html>
 <head>
 <title>Edit</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body style="text-align:center; font-family:Arial;">
+<body class="bg-light">
+<div class="container mt-5">
 
-<h2>Edit Student</h2>
+<h3>Edit Student</h3>
 
 <form action="/update/{{ student.roll }}" method="POST">
-    <input type="text" name="name" value="{{ student.name }}" required><br><br>
-    <input type="number" name="marks" value="{{ student.marks }}" required><br><br>
-    <button>Update</button>
+
+<input name="name" value="{{ student.name }}" class="form-control mb-2">
+<input name="enroll" value="{{ student.enroll }}" class="form-control mb-2">
+<input type="date" name="dob" value="{{ student.dob }}" class="form-control mb-2">
+
+<input name="math" value="{{ student.subjects.Math }}" class="form-control mb-2">
+<input name="science" value="{{ student.subjects.Science }}" class="form-control mb-2">
+<input name="english" value="{{ student.subjects.English }}" class="form-control mb-2">
+
+<button class="btn btn-success">Update</button>
+
 </form>
 
-<br>
-<a href="/">Back</a>
-
+</div>
 </body>
 </html>
