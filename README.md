@@ -1,109 +1,129 @@
-# 🎓 Student Management System (Flask Web App)
+# 🎓 Student Management System (Flask Based)
 
 ## 📌 Project Overview
 
-This project is a **Student Management System** developed using **Python (Flask Framework)**.
-It allows users to manage student records through a web interface with full CRUD operations.
+The Student Management System is a web-based application developed using Python and Flask framework.
+It allows users to manage student records efficiently with a modern user interface.
+
+This system includes features like adding students, updating details, deleting records, viewing profiles, and managing multi-subject marks.
 
 ---
 
 ## 🚀 Features
 
-* ➕ Add Student
-* 📋 View Students
-* 🔍 Search Student (by Name or Roll No)
-* ✏️ Update Student Details
-* ❌ Delete Student (with confirmation)
-* 📊 Automatic Grade System
-* ⭐ Topper Highlight (Highest Marks First)
-* 📈 Total Students Count
-* 🎨 Clean and Responsive UI
+* 🔐 Login & Logout Authentication System
+* ➕ Add Student with Full Details
+* ✏️ Update Student Information
+* ❌ Delete Student Record
+* 👤 View Student Profile (Separate Page)
+* 📚 Multi-Subject Marks System
+* 📊 Automatic Total, Percentage & Grade Calculation
+* 🎨 Modern UI using Bootstrap
+* 💾 Data stored in JSON file
 
 ---
 
-## 🛠️ Technologies Used
+## 🧠 Technologies Used
 
 * Python
 * Flask
 * HTML
-* CSS
-* JSON (for data storage)
+* CSS (Bootstrap)
+* JSON
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
 student_web_project/
 │
 ├── app.py
 ├── students.json
-├── requirements.txt
-├── Procfile
+│
 └── templates/
     ├── index.html
-    └── edit.html
+    ├── edit.html
+    ├── profile.html
+    └── login.html
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## ▶️ How to Run the Project
 
-### 1️⃣ Clone the repository
+1. Install Python (3.x)
 
-```
-git clone https://github.com/your-username/student-management-system.git
-cd student-management-system
-```
+2. Install Flask:
 
-### 2️⃣ Install dependencies
+   ```bash
+   pip install flask
+   ```
 
-```
-pip install -r requirements.txt
-```
+3. Run the application:
 
-### 3️⃣ Run the application
+   ```bash
+   python app.py
+   ```
 
-```
-python app.py
-```
+4. Open browser:
 
-### 4️⃣ Open in browser
+   ```
+   http://127.0.0.1:5000
+   ```
 
-```
-http://127.0.0.1:5000
+---
+
+## 🔐 Login Credentials
+
+* Username: `admin`
+* Password: `1234`
+
+---
+
+## 📊 Student Data Format
+
+Each student record is stored in JSON format:
+
+```json
+{
+  "name": "Jay",
+  "roll": "101",
+  "enroll": "2025A01",
+  "dob": "2005-01-01",
+  "subjects": {
+    "Math": 80,
+    "Science": 75,
+    "English": 85
+  },
+  "total": 240,
+  "percentage": 80,
+  "grade": "A"
+}
 ```
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Deployment
 
-👉 https://student-management-system-prw2.onrender.com
+The project can be deployed on platforms like Render.
 
----
+Steps:
 
-## 📊 How It Works
-
-* Data is stored in a `students.json` file
-* Flask handles backend logic
-* HTML + CSS used for frontend UI
-* CRUD operations performed via web interface
+* Push code to GitHub
+* Connect GitHub repo to Render
+* Enable auto deploy
+* Deploy latest commit
 
 ---
 
-## 🎯 Learning Outcomes
+## 🚀 Future Scope
 
-* Understanding of Flask framework
-* Implementation of CRUD operations
-* Working with JSON file handling
-* Building and deploying a web application
-* Using GitHub and cloud deployment
-
----
-
-## 🎤 Viva Explanation (Short)
-
-This project is built using Flask, which is a Python web framework. It allows managing student records with features like add, update, delete, and search. The data is stored in a JSON file and the application is deployed online using Render.
+* Database integration (MySQL / MongoDB)
+* User roles (Admin / Student)
+* PDF Report Generation
+* Graphs & Analytics
+* Mobile Application
 
 ---
 
@@ -115,6 +135,9 @@ This project is built using Flask, which is a Python web framework. It allows ma
 
 ## ⭐ Conclusion
 
-This project demonstrates how a simple Python application can be transformed into a fully functional web-based system with real-world usability.
+This project demonstrates a complete web-based student management system using Flask.
+It provides practical understanding of CRUD operations, authentication, and UI design.
 
 ---
+
+✨ *This is a complete A1-level academic project with real-world features.*
