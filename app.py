@@ -1,10 +1,13 @@
-from flask import Flask, render_template, request, redirect
-import json
-import os
+from flask import Flask, render_template, request, redirect, session
+import json, os
 
 app = Flask(__name__)
+app.secret_key = "secret123"
 
 FILE = "students.json"
+
+# Dummy user (for project)
+USER = {"username": "aapkajayy", "password": "jay69"}
 
 # Load data
 def load_data():
@@ -18,26 +21,52 @@ def save_data(data):
     with open(FILE, "w") as f:
         json.dump(data, f, indent=4)
 
-# Grade function
+# Grade
 def get_grade(p):
-    if p >= 90:
-        return "A"
-    elif p >= 75:
-        return "B"
-    elif p >= 50:
-        return "C"
-    else:
-        return "Fail"
+    if p >= 90: return "A"
+    elif p >= 75: return "B"
+    elif p >= 50: return "C"
+    else: return "Fail"
 
-# Home
+# 🔒 LOGIN REQUIRED DECORATOR
+def is_logged_in():
+    return "user" in session
+
+# LOGIN PAGE
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        u = request.form["username"]
+        p = request.form["password"]
+
+        if u == USER["username"] and p == USER["password"]:
+            session["user"] = u
+            return redirect("/")
+        else:
+            return "Invalid Credentials"
+
+    return render_template("login.html")
+
+# LOGOUT
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect("/login")
+
+# HOME (PROTECTED)
 @app.route("/")
 def home():
+    if not is_logged_in():
+        return redirect("/login")
     data = load_data()
     return render_template("index.html", students=data)
 
-# Add student
+# ADD
 @app.route("/add", methods=["POST"])
 def add():
+    if not is_logged_in():
+        return redirect("/login")
+
     data = load_data()
 
     name = request.form["name"]
@@ -71,27 +100,35 @@ def add():
     save_data(data)
     return redirect("/")
 
-# Delete
+# DELETE
 @app.route("/delete/<roll>")
 def delete(roll):
+    if not is_logged_in():
+        return redirect("/login")
+
     data = load_data()
     data = [s for s in data if s["roll"] != roll]
     save_data(data)
     return redirect("/")
 
-# Edit page
+# EDIT
 @app.route("/edit/<roll>")
 def edit(roll):
+    if not is_logged_in():
+        return redirect("/login")
+
     data = load_data()
     for s in data:
         if s["roll"] == roll:
             return render_template("edit.html", student=s)
 
-# Update
+# UPDATE
 @app.route("/update/<roll>", methods=["POST"])
 def update(roll):
-    data = load_data()
+    if not is_logged_in():
+        return redirect("/login")
 
+    data = load_data()
     for s in data:
         if s["roll"] == roll:
             s["name"] = request.form["name"]
@@ -117,9 +154,12 @@ def update(roll):
     save_data(data)
     return redirect("/")
 
-# Profile page
+# PROFILE
 @app.route("/profile/<roll>")
 def profile(roll):
+    if not is_logged_in():
+        return redirect("/login")
+
     data = load_data()
     for s in data:
         if s["roll"] == roll:

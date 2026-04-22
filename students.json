@@ -12,5 +12,47 @@
         "total": 275,
         "percentage": 91.67,
         "grade": "A"
+    },
+    {
+        "name": "Luffy",
+        "roll": "10",
+        "enroll": "11111111",
+        "dob": "2001-01-01",
+        "subjects": {
+            "Math": 70,
+            "Science": 75,
+            "English": 65
+        },
+        "total": 210,
+        "percentage": 70.0,
+        "grade": "C"
+    },
+    {
+        "name": "Zoro",
+        "roll": "20",
+        "enroll": "22222222",
+        "dob": "2001-01-02",
+        "subjects": {
+            "Math": 90,
+            "Science": 70,
+            "English": 70
+        },
+        "total": 230,
+        "percentage": 76.67,
+        "grade": "B"
+    },
+    {
+        "name": "Shanks",
+        "roll": "30",
+        "enroll": "33333333",
+        "dob": "2000-01-03",
+        "subjects": {
+            "Math": 95,
+            "Science": 80,
+            "English": 75
+        },
+        "total": 250,
+        "percentage": 83.33,
+        "grade": "B"
     }
 ]
