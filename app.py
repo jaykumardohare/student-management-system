@@ -7,7 +7,7 @@ app.secret_key = "secret123"
 FILE = "students.json"
 
 # Dummy user (for project)
-USER = {"username": "aapkajayy", "password": "jay69"}
+USER = {"username": "jay", "password": "12345678"}
 
 # Load data
 def load_data():
